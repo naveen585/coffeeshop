@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="register">
+        <h1>Register</h1>
+    </div>
+    <div></div>
+</div>
+{% from "_formhelpers.html" import render_field %}
+<form action="" method="POST">
+    {{ form.crsf_token }}
+    <div class="row">
+        {{render_field(form.full_name)}}<br>
+        {{render_field(form.username)}}<br>
+        {{render_field(form.email)}}<br>
+        {{render_field(form.password)}}<br>
+        {{render_field(form.confirm_password)}}<br>
+        {{render_field(form.age)}}<br>
+        {{render_field(form.contact)}}<br>
+        {{form.profile()}}<br>
+        <p> <input type="submit" value="Register" class="btn btn-info"></p>
+    </div>
+</form>
+</div>
+{% endblock %}

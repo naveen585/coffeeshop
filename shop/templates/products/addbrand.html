@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    {% include '_messages.html' %}
+    {% if brands %}
+    <h1>Add Brand</h1>
+    <form action="" method="POST">
+        <input type="text" name="brand">
+        <input type="submit" value="Add brand">
+    </form>
+    {% else %}
+    <h1>Add Category</h1>
+    <form action="" method="POST">
+        <input type="text" name="category">
+        <input type="submit" value="Add category">
+    </form>
+    {% endif %}
+</div>
+
+{% endblock %}

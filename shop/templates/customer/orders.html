@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+{% include '_messages.html' %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+        <table class="table table-sm">
+            <thead>
+                <th>S No.</th>
+                <th>Name</th>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{order.orders}}</td>
+                {% endfor %}
+            </tbody>
+            </table>
+    </div>
+</div>
+</div>
+
+{% endblock %}

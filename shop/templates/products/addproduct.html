@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% include '_messages.html' %}
+
+<div class="container">
+    <h2 class="text-center">Add product</h2>
+    {% from "_formhelpers.html" import render_field%}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{render_field(form.product_name, placeholder="Product Name")}}
+        {{render_field(form.product_desc, placeholder="Product Description", rows="10")}}
+        {{render_field(form.product_price, placeholder="Product Price")}}
+        {{render_field(form.product_qty, placeholder="Product Quantity")}}
+        <label for="brand">Add brand</label>
+        <select name="brand" id="brand">
+            <option value="">Select a brand</option>
+            {% for brand in brands %}
+            <option value="{{brand.id}}">{{brand.name}}</option>
+            {% endfor %}
+        </select>
+
+        <label for="category">Add category</label>
+        <select name="category" id="category">
+            <option value="">Select a category</option>
+            {% for category in categories %}
+            <option value="{{category.id}}">{{category.name}}</option>
+            {% endfor %}
+        </select>
+
+        {{render_field(form.image)}}
+        <button type="submit">Add Product</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    {% include '_messages.html' %}
+    {% if updatebrand %}
+    <h1>Update Brand</h1>
+    <form action="" method="POST">
+        <input type="text" name="brand" value="{{updatebrand.name}}">
+        <input type="submit" value="Update brand">
+    </form>
+    <a href="{{url_for('brands')}}">Cancel</a>
+    {% else %}
+    <h1>Update Category</h1>
+    <form action="" method="POST">
+        <input type="text" name="category" value="{{updatecategory.name}}">
+        <input type="submit" value="Update category">
+    </form>
+    <a href="{{url_for('categories')}}">Cancel</a>
+    {% endif %}
+</div>
+
+{% endblock %}

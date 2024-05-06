@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="text-center h1">Login</div>
+<div class="container">
+    {% include '_messages.html' %}
+    {% from "_formhelpers.html" import render_field%}
+    <form method="POST">
+        {{render_field(form.email)}}<br>
+        {{render_field(form.password)}}<br>
+    <p> <input type="submit" value="Login" class="btn btn-info"></p>
+    </form>
+
+</div>
+{% endblock %}

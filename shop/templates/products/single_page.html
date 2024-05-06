@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-6" id="background_image">
+        <img src="{{url_for('static', filename='images/'+product.image)}}" alt="{{product.product_name}}" height="400" width="400">
+    </div>
+    <div class="col-md-6">
+        <h4>Product name: {{product.product_name}}</h4>
+        <hr>
+        <p>Product price: {{product.product_price}}</p>
+        <b>Product Description: </b>
+        <p>{{ product.product_desc}}</p>
+        <form action="{{url_for('addtocart')}}" method="POST">
+            <input type="hidden" name="product_id" value="{{product.id}}">
+            <button type="submit" class="btn btn-sm btn-warning">Add to Cart</button>
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" value="1" min="1" max="{{product.product_qty}}">
+        </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

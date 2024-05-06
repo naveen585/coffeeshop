@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% include '_messages.html' %}
+<div class="container">
+    <table>
+        <thead>
+            <th>Sno</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            {% if brands %}
+            {% for brand in brands %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{brand.name}}</td>
+                <td> <a href="{{url_for('updatebrand',id = brand.id)}}">Edit</a></td>
+                <td> <a href="{{url_for('deletebrand',id = brand.id)}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            {% for category in categories %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{category.name}}</td> 
+                <td> <a href="{{url_for('updatecategory',id = category.id)}}">Edit</a></td>
+                <td> <a href="{{url_for('deletecategory',id = category.id)}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
